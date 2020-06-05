@@ -27,6 +27,6 @@
     path: /opt/nginx
     state: absent
 
-- name: Reboot a slow machine that might have lots of updates to apply
+- name: Unconditionally reboot the machine with all defaults
   become: yes
   reboot:
