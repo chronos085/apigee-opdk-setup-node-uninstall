@@ -26,3 +26,6 @@
   file:
     path: /opt/nginx
     state: absent
+
+- name: Unconditionally reboot the machine with all defaults
+  reboot:
