@@ -7,13 +7,16 @@
   
 - name: Clear the yum cache
   shell: sudo yum clean all
-  args:
-    removes: /opt/apigee
   
-- name: Remove all the Apigee RPMs
-  shell: sudo rpm -e $(rpm -qa | egrep "(apigee-|edge-)")
-  args:
-    removes: /opt/apigee
+- name: Remove Apigee RPMs
+  package:
+    name: apigee*
+    state: absent
+
+- name: Remove edge RPMs
+  package:
+    name: edge*
+    state: absent
 
 - name: Remove the installation root directory
   become: yes
