@@ -9,11 +9,13 @@
   shell: sudo yum clean all
   
 - name: Remove Apigee RPMs
+  become: yes
   package:
     name: apigee*
     state: absent
 
 - name: Remove edge RPMs
+  become: yes
   package:
     name: edge*
     state: absent
